@@ -27,5 +27,11 @@ public class MainList {
                 System.out.println(movieItem.getClassification());
             }
         }
+
+        ArrayList<String> searchArtist = new ArrayList<>();
+        searchArtist.add("Israel");
+        searchArtist.add("Guilherme");
+        searchArtist.add("Diego");
+
     }
 }
