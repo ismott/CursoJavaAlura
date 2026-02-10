@@ -1,6 +1,6 @@
 package br.com.israel.ismotFlix.models;
 
-public class Title {
+public class Title implements Comparable<Title> {
     private String name;
     private int releaseYear;
     private boolean includedInPlan;
@@ -69,5 +69,10 @@ public class Title {
 
     public double getAverage(){
         return sumReview/totalReview;
+    }
+
+    @Override
+    public int compareTo(Title title) {
+        return this.getName().compareTo(title.getName());
     }
 }

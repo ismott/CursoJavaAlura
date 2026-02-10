@@ -5,6 +5,9 @@ import br.com.israel.ismotFlix.models.Series;
 import br.com.israel.ismotFlix.models.Title;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class MainList {
     public static void main(String[] args) {
@@ -15,7 +18,7 @@ public class MainList {
         movie2.rate(8);
         Series serie2 = new Series("lost", 2015);
 
-        ArrayList<Title> titles = new ArrayList<>();
+        List<Title> titles = new ArrayList<>();
         titles.add(movie);
         titles.add(movie2);
         titles.add(serie);
@@ -28,10 +31,11 @@ public class MainList {
             }
         }
 
-        ArrayList<String> searchArtist = new ArrayList<>();
-        searchArtist.add("Israel");
-        searchArtist.add("Guilherme");
-        searchArtist.add("Diego");
+        Collections.sort(titles);
+        System.out.println(titles);
+
+        titles.sort(Comparator.comparing(Title::getReleaseYear));
+        System.out.println(titles);
 
     }
 }
