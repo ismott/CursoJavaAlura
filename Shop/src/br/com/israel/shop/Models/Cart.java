@@ -5,14 +5,16 @@ import java.util.List;
 
 public class Cart {
     private List<Product> products;
-    private double totalPrice;
+    private double totalPrice = 0;
 
     public List<Product> getProducts() {
         return products;
     }
 
     public void add(Product product) {
-        products = new ArrayList<>();
+        if (products == null) {
+            products = new ArrayList<>();
+        }
         this.products.add(product);
     }
 
@@ -20,12 +22,23 @@ public class Cart {
         return this.products;
     }
 
+    public void removeItem(String productName){
+        this.products.removeIf(product -> product.getName().equals(productName));
+    }
 
-    public double calculateTotalPrice(){
-        for (Product product : this.products){
-            this.totalPrice =+ product.getPrice();
+    public void removeAll(){
+        this.products.clear();
+    }
+
+    public double calculateTotalPrice() {
+        totalPrice = 0;
+        if (products != null) {
+            for (Product product : this.products) {
+                totalPrice += product.getPrice();
+            }
+            return totalPrice;
         }
-        return this.totalPrice;
+        return 0;
     }
 
 }
