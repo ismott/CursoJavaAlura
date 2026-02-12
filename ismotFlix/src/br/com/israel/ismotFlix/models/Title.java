@@ -3,9 +3,7 @@ package br.com.israel.ismotFlix.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Title implements Comparable<Title> {
-    @SerializedName("title")
     private String name;
-    @SerializedName("release_date")
     private int releaseYear;
     private boolean includedInPlan;
     private double sumReview;
@@ -82,7 +80,7 @@ public class Title implements Comparable<Title> {
 
     @Override
     public String toString() {
-        return  "name='" + name + '\'' +
-                ", releaseYear=" + releaseYear;
+        return  "{name='" + name + '\'' +
+                ", releaseYear=" + releaseYear + "}";
     }
 }
